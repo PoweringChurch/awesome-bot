@@ -3,10 +3,8 @@
 
 struct vector2 {
 public:
-    vector2(float x, float y) {
-        this->x = x;
-        this->y = y;
-    };
+    vector2() {};
+    vector2(double x, double y) : x(x), y(y) {}
     double x, y;
     vector2 operator+(const vector2& other) const {
         return vector2(x + other.x, y + other.y);

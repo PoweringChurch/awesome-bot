@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>C++ Output Screen</title>
+</head>
+<body>
+    <h2>C++ Live Data Output</h2>
+    <pre id="cpp-output">Loading data...</pre>
+
+    <script>
+        async function fetchCppData() {
+            try {
+                let response = await fetch('http://localhost:8080/data');
+                let text = await response.text();
+                document.getElementById('cpp-output').textContent = text;
+            } catch (err) {
+                document.getElementById('cpp-output').textContent = 'Error connecting to C++ server.';
+            }
+        }
+        setInterval(fetchCppData, 1000); // Poll every 1 second
+    </script>
+</body>
+</html>
